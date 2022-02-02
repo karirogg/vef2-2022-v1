@@ -3,7 +3,6 @@ import { readFile, readdir, stat, writeFile, mkdir } from "fs/promises";
 import { parse } from "./parse-txt.js";
 import { calculateStats } from "./calculate-stats.js";
 import { makeHTML, makeIndex, siteTemplate } from "./make-html.js";
-import { parse as removeExtension } from "path";
 import { direxists } from "./lib/file.js";
 
 const OUTPUT_DIR = "./dist";
@@ -22,13 +21,13 @@ async function main() {
     const path = join(FILE_DIR, file);
     const info = await stat(path);
 
-    if (info.isDirectory() || file === ".DS_Store") {
+    if (info.isDirectory() || file === '.DS_Store') {
       return;
     }
 
     const data = await readFile(path);
 
-    const str = data.toString("utf-8");
+    const str = data.toString('utf-8');
 
     const numberList = parse(str);
 

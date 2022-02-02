@@ -36,11 +36,11 @@ function mean(array) {
 
 function median(array) {
   if (array.length === 0) return NaN;
-  array.sort();
+  const sortedArray = [...array].sort();
 
-  if (array.length % 2 === 1) return array[(array.length - 1) / 2];
+  if (sortedArray.length % 2 === 1) return sortedArray[(sortedArray.length - 1) / 2];
 
-  return (array[array.length / 2 - 1] + array[array.length / 2]) / 2;
+  return (sortedArray[sortedArray.length / 2 - 1] + sortedArray[sortedArray.length / 2]) / 2;
 }
 
 function range(array) {
