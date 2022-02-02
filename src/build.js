@@ -21,6 +21,7 @@ async function main() {
     const path = join(FILE_DIR, file);
     const info = await stat(path);
 
+    if(file !== "4.txt") return;
     if (info.isDirectory() || file === '.DS_Store') {
       return;
     }

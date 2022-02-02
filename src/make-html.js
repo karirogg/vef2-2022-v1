@@ -5,6 +5,7 @@ export function makeHTML(stats, numberList, fileName) {
     <section>
       <p><strong>Stærsta gildi:</strong> ${stats.max}</p>
       <p><strong>Minnsta gildi:</strong> ${stats.min}</p>
+      <p><strong>Summa:</strong> ${stats.sum}</p>
       <p><strong>Meðaltal:</strong> ${stats.mean}</p>
       <p><strong>Miðgildi:</strong> ${stats.median}</p>
       <p><strong>Svið:</strong> ${stats.range[0]} - ${stats.range[1]}</p>

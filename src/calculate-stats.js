@@ -36,8 +36,8 @@ function mean(array) {
 
 function median(array) {
   if (array.length === 0) return NaN;
-  const sortedArray = [...array].sort();
-
+  const sortedArray = [...array].sort((a,b) => a-b);
+  console.log(sortedArray);
   if (sortedArray.length % 2 === 1) return sortedArray[(sortedArray.length - 1) / 2];
 
   return (sortedArray[sortedArray.length / 2 - 1] + sortedArray[sortedArray.length / 2]) / 2;
@@ -67,6 +67,7 @@ export function calculateStats(array) {
   return {
     max: max(array),
     min: min(array),
+    sum: sum(array),
     mean: mean(array),
     median: median(array),
     range: range(array),
