@@ -40,6 +40,7 @@ export function siteTemplate(title, content, showBack = false) {
       <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+      <h1>${title}</h1>
       ${content ?? ""}
       ${back}
     </body>

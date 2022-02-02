@@ -21,21 +21,20 @@ async function main() {
     const path = join(FILE_DIR, file);
     const info = await stat(path);
 
-    if(file !== "4.txt") return;
-    if (info.isDirectory() || file === '.DS_Store') {
+    if (info.isDirectory() || file === ".DS_Store") {
       return;
     }
 
     const data = await readFile(path);
 
-    const str = data.toString('utf-8');
+    const str = data.toString("utf-8");
 
     const numberList = parse(str);
 
     const stats = calculateStats(numberList);
 
     const html = makeHTML(stats, numberList);
-    const numericalAnalysis = siteTemplate(file, html, true);
+    const numericalAnalysis = siteTemplate(`Gagnasett ${file}`, html, true);
     const filename = file.split(".")[0];
 
     if (filename.length > 0) {
