@@ -1,5 +1,5 @@
 export function makeHTML(stats, numberList, fileName) {
-  const numbersParagraphs = numberList.map(number => `<p>${number}</p>`)
+  const numbersParagraphs = numberList.map((number) => `<p>${number}</p>`);
 
   const template = `
     <section>
@@ -12,15 +12,15 @@ export function makeHTML(stats, numberList, fileName) {
       <p><strong>Staðalfrávik:</strong> ${stats.std}</p>
     </section>
     <section>
-      ${numbersParagraphs.join('\n')}
+      ${numbersParagraphs.join("\n")}
     </section>
-  `
+  `;
 
   return template;
 }
 
 export function makeIndex(entries) {
-  let list = '';
+  let list = "";
   for (const entry of entries) {
     const link = `<li><a href="${`${entry}.html`}">${entry}</a></li>`;
     list += link;
@@ -29,17 +29,17 @@ export function makeIndex(entries) {
   return `<ul>${list}</ul>`;
 }
 
-export function siteTemplate(title, content, showBack=false) {
-  const back = showBack ? '<p><a href="/">Til baka</a></p>' : '';
+export function siteTemplate(title, content, showBack = false) {
+  const back = showBack ? '<p><a href="/">Til baka</a></p>' : "";
   return `
   <!doctype html>
   <html>
     <head>
-      <title>${title ?? ''}</title>
+      <title>${title ?? ""}</title>
       <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-      ${content ?? ''}
+      ${content ?? ""}
       ${back}
     </body>
   </html>`;

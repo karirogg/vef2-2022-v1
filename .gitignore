@@ -3,5 +3,5 @@ coverage
 
 .DS_Store
 
-build/
-dist/
+build
+dist
