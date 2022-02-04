@@ -15,7 +15,7 @@
         "fix-js": "prettier-eslint --write 'src/**/*.{js,jsx}' ",
         "fix-css": "prettier-stylelint --write 'src/**/*.{css,scss}' ",
         "prettier": "concurrently npm:fix-js npm:fix-css",
-        "build": "node ./src/build.js",
+        "build": "node ./src/build.js && cpy public dist",
         "test-watch": "NODE_OPTIONS='--experimental-vm-modules' jest --watch ./test/*.js",
         "coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage ./test/*.js",
         "test": "concurrently npm:coverage npm:test-watch"
