@@ -1,4 +1,4 @@
-export function makeHTML(stats, numberList, fileName) {
+export function makeHTML(stats, numberList) {
   const numbersParagraphs = numberList.map((number) => `<p>${number}</p>`);
 
   if(Number.isNaN(stats.max)) {
@@ -38,16 +38,16 @@ export function makeHTML(stats, numberList, fileName) {
       </div>
       <div>
         <p><strong>Frávik:</strong></p>
-        <p>${Number.isNaN(stats.variance) ? "Ekki hægt að reikna frávik" : stats.variance.toFixed(3)}</p>
+        <p>${Number.isNaN(stats.variance) ? 'Ekki hægt að reikna frávik' : stats.variance.toFixed(3)}</p>
       </div>
       <div>
         <p><strong>Staðalfrávik:</strong></p>
-        <p>${Number.isNaN(stats.std) ? "Ekki hægt að reikna frávik" : stats.std.toFixed(3)}</p>
+        <p>${Number.isNaN(stats.std) ? 'Ekki hægt að reikna frávik' : stats.std.toFixed(3)}</p>
       </div>
     </section>
     <section class="parsed-numbers">
       <h2>Þáttað gagnasett</h2>
-      ${numbersParagraphs.join("\n")}
+      ${numbersParagraphs.join('\n')}
     </section>
   `;
 
@@ -55,7 +55,7 @@ export function makeHTML(stats, numberList, fileName) {
 }
 
 export function makeIndex(entries) {
-  let list = "";
+  let list = '';
   for (const entry of entries) {
     const link = `<a href="${`${entry}.html`}"><li>Gagnasett ${entry}</li></a>`;
     list += link;
@@ -72,14 +72,14 @@ export function siteTemplate(title, content, showBack = false) {
     <head>
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <link rel="stylesheet" href="styles.css">
-      <title>${title ?? ""}</title>
+      <title>${title ?? ''}</title>
     </head>
     <body>
       <header>
         <h1>${title}</h1>
       </header>
       <main>
-        ${content ?? ""}
+        ${content ?? ''}
         ${back}
       </main>
     </body>

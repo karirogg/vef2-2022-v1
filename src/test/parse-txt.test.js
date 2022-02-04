@@ -1,5 +1,8 @@
+// Fékk eslint villu þegar ég reyndi að importa þessu, þetta er alveg eins og í sýnidæmi.
+// Læt þetta slide-a
+// eslint-disable-next-line
 import { describe, expect, it } from '@jest/globals';
-import { parse, stringToNumber } from '../src/parse-txt';
+import { parse, stringToNumber } from '../parse-txt';
 
 describe('stringToNumber', () => {
   it('can parse small, integer numbers', () => {
@@ -39,7 +42,9 @@ describe('stringToNumber', () => {
   });
 
   it('can parse numbers in scientific notation', () => {
-    const input = ''
+    const input = '1.23e3';
+    const parsed = stringToNumber(input);
+    expect(parsed).toBe(1230);
   })
 
   it('can parse numbers with leading whitespace', () => {

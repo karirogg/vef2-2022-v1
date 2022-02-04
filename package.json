@@ -2,22 +2,21 @@
     "name": "vef1-2022-v1",
     "version": "1.0.0",
     "description": "Verkefni 1 í vefforritun 2",
-    "main": "index.js",
-    "type": "module",
+    "main": "build.js",
     "scripts": {
         "browser-sync": "browser-sync start --server --files main.js **/*.js styles.css index.html",
         "sass": "sass styles.scss styles.css",
         "sass-watch": "sass --watch *.scss styles.css",
         "dev": "concurrently npm:sass-watch npm:browser-sync",
-        "lint-js": "eslint ./**/*.js",
+        "lint-js": "eslint ./src/*.js ./src/**/*.js",
         "lint-css": "stylelint styles.scss ./**/*.css",
         "lint": "concurrently npm:lint-js npm:lint-css",
         "fix-js": "prettier-eslint --write 'src/**/*.{js,jsx}' ",
         "fix-css": "prettier-stylelint --write 'src/**/*.{css,scss}' ",
         "prettier": "concurrently npm:fix-js npm:fix-css",
         "build": "node ./src/build.js && cpy public dist",
-        "test-watch": "NODE_OPTIONS='--experimental-vm-modules' jest --watch ./test/*.js",
-        "coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage ./test/*.js",
+        "test-watch": "NODE_OPTIONS='--experimental-vm-modules' jest --watch ./src/**/*.test.js",
+        "coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage ./src/**/*.test.js",
         "test": "concurrently npm:coverage npm:test-watch"
     },
     "keywords": [],
@@ -30,7 +29,6 @@
         "eslint-config-airbnb-base": "14.2.1",
         "eslint-config-prettier": "8.3.0",
         "eslint-plugin-import": "2.25.2",
-        "jest": "^27.4.7",
         "prettier": "2.4.1",
         "prettier-eslint": "^13.0.0",
         "prettier-eslint-cli": "^5.0.1",
@@ -41,6 +39,8 @@
         "stylelint-config-standard": "^22.0.0"
     },
     "dependencies": {
-        "cpy-cli": "^3.1.1"
+        "@jest/globals": "^27.4.6",
+        "cpy-cli": "^3.1.1",
+        "jest": "^27.4.7"
     }
 }

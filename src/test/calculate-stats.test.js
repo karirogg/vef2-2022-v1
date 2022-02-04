@@ -1,5 +1,6 @@
+// eslint-disable-next-line
 import { describe, expect, it } from '@jest/globals';
-import { calculateStats } from '../src/calculate-stats';
+import { calculateStats } from '../calculate-stats';
 
 describe('stats', () => {
   it('can describe simple statistics of a short array with an odd number of elements', () => {
@@ -17,7 +18,7 @@ describe('stats', () => {
     expect(stats.std).toBeCloseTo(4.086563);
   });
 
-  it('can describe simple statistics of a short array with an even number of elements and negative numbers', () => {
+  it('can describe simple statistics of a short array with an even number of elements', () => {
     const input = [-0.1,0.6, -1.1, 7.2, 5,7];
 
     const stats = calculateStats(input);

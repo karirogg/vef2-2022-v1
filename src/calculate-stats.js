@@ -52,11 +52,6 @@ function range(array) {
   return [min(array), max(array)];
 }
 
-function std(array) {
-  if (array.length === 0) return NaN;
-  return Math.sqrt(variance(array));
-}
-
 function variance(array) {
   if (array.length === 0) return NaN;
   const m = mean(array);
@@ -65,6 +60,11 @@ function variance(array) {
   for (const item of array) out += (item - m) * (item - m);
 
   return out / (array.length - 1);
+}
+
+function std(array) {
+  if (array.length === 0) return NaN;
+  return Math.sqrt(variance(array));
 }
 
 export function calculateStats(array) {
