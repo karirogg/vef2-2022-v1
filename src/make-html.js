@@ -65,7 +65,7 @@ export function makeIndex(entries) {
 }
 
 export function siteTemplate(title, content, showBack = false) {
-  const back = showBack ? '<p class="back"><a href="/">Til baka</a></p>' : '';
+  const back = showBack ? '<a href="/"><p class="back">Til baka</p></a>' : '';
   return `
   <!doctype html>
   <html>

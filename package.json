@@ -10,7 +10,7 @@
         "sass-watch": "sass --watch *.scss styles.css",
         "dev": "concurrently npm:sass-watch npm:browser-sync",
         "lint-js": "eslint ./**/*.js",
-        "lint-css": "stylelint styles.scss ./**/*.scss",
+        "lint-css": "stylelint styles.scss ./**/*.css",
         "lint": "concurrently npm:lint-js npm:lint-css",
         "fix-js": "prettier-eslint --write 'src/**/*.{js,jsx}' ",
         "fix-css": "prettier-stylelint --write 'src/**/*.{css,scss}' ",
