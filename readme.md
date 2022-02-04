@@ -17,3 +17,5 @@ Til þess að keyra tests skal keyra:
 ```
 npm test
 ```
+
+Vefsíðan er aðgengileg á: https://admiring-chandrasekhar-9d01a1.netlify.app/
