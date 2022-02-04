@@ -47,7 +47,7 @@ async function main() {
     }
 
     links.sort((a,b) => a-b);
-    const index = siteTemplate("My datasets", makeIndex(links));
+    const index = siteTemplate("Gagnasettin mín", makeIndex(links));
     await writeFile(join(OUTPUT_DIR, "index.html"), index, { flag: "w+" });
   });
 }
