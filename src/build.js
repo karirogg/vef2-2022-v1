@@ -34,18 +34,19 @@ async function main() {
     const stats = calculateStats(numberList);
 
     const html = makeHTML(stats, numberList);
-    const numericalAnalysis = siteTemplate(`Gagnasett ${file}`, html, true);
     const filename = file.split(".")[0];
+    const numericalAnalysis = siteTemplate(`Gagnasett ${filename}`, html, true);
 
     if (filename.length > 0) {
       await writeFile(join(OUTPUT_DIR, `${filename}.html`), numericalAnalysis, {
         flag: "w+",
       });
-      links.push(filename);
+      links.push(Number(filename));
     } else {
       console.warn("Missing title", path);
     }
 
+    links.sort((a,b) => a-b);
     const index = siteTemplate("My datasets", makeIndex(links));
     await writeFile(join(OUTPUT_DIR, "index.html"), index, { flag: "w+" });
   });

@@ -1,6 +1,14 @@
 export function makeHTML(stats, numberList, fileName) {
   const numbersParagraphs = numberList.map((number) => `<p>${number}</p>`);
 
+  if(Number.isNaN(stats.max)) {
+    return `
+      <section>
+        <p>Gagnasett inniheldur einungis brengluð gildi eða er innihaldslaust!</p>
+      </section>
+    `
+  }
+
   const template = `
     <section>
       <p><strong>Stærsta gildi:</strong> ${stats.max}</p>
@@ -9,8 +17,8 @@ export function makeHTML(stats, numberList, fileName) {
       <p><strong>Meðaltal:</strong> ${stats.mean}</p>
       <p><strong>Miðgildi:</strong> ${stats.median}</p>
       <p><strong>Svið:</strong> ${stats.range[0]} - ${stats.range[1]}</p>
-      <p><strong>Frávik:</strong> ${stats.variance}</p>
-      <p><strong>Staðalfrávik:</strong> ${stats.std}</p>
+      <p><strong>Frávik:</strong> ${Number.isNaN(stats.variance) ? "Ekki hægt að reikna frávik" : stats.variance}</p>
+      <p><strong>Staðalfrávik:</strong> ${Number.isNaN(stats.std) ? "Ekki hægt að reikna frávik" : stats.std}</p>
     </section>
     <section>
       ${numbersParagraphs.join("\n")}
@@ -23,7 +31,7 @@ export function makeHTML(stats, numberList, fileName) {
 export function makeIndex(entries) {
   let list = "";
   for (const entry of entries) {
-    const link = `<li><a href="${`${entry}.html`}">${entry}</a></li>`;
+    const link = `<li><a href="${`${entry}.html`}">Gagnasett ${entry}</a></li>`;
     list += link;
   }
 
@@ -40,9 +48,13 @@ export function siteTemplate(title, content, showBack = false) {
       <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-      <h1>${title}</h1>
-      ${content ?? ""}
-      ${back}
+      <header>
+        <h1>${title}</h1>
+      </header>
+      <main>
+        ${content ?? ""}
+        ${back}
+      </main>
     </body>
   </html>`;
 }
